@@ -12,6 +12,11 @@ body {
   padding: 5px 20px;
 }
 
+.header h1 a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .header nav ul {
   display: flex;
   gap: 40px;
@@ -44,6 +49,40 @@ body {
 .table {
   display: flex;
   justify-content: space-between;
+  width: 90%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   padding: 20px;
-  background-color: aqua;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: rgb(54, 51, 51);
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f6d4d4;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.423);
+}
+
+.show_row {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  color: rgb(54, 51, 51);
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f6d4d4;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.423);
+}
+
+.action {
+  display: flex;
+  gap: 10px;
 }
