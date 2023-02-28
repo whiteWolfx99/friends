@@ -1,6 +1,6 @@
 <%= form_with(model: friend) do |form| %>
   <% if friend.errors.any? %>
-    <div style="color: red">
+    <div class="error-message">
       <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
 
       <ul>
@@ -11,32 +11,93 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+  <div class="form-group">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+  <div class="form-group">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :emai, style: "display: block" %>
-    <%= form.text_field :emai %>
+  <div class="form-group">
+    <%= form.label :emai %>
+    <%= form.text_field :emai, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
+  <div class="form-group">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :twitter, style: "display: block" %>
-    <%= form.text_field :twitter %>
+  <div class="form-group">
+    <%= form.label :twitter %>
+    <%= form.text_field :twitter, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+    <div class="form-group">
+    <%= form.label :instagram %>
+    <%= form.text_field :instagram, class: "form-control" %>
+  </div>
+
+    <div class="form-group">
+    <%= form.label :facebook %>
+    <%= form.text_field :facebook, class: "form-control" %>
+  </div>
+
+    <div class="form-group">
+    <%= form.label :snapchat %>
+    <%= form.text_field :snapchat, class: "form-control" %>
+  </div>
+
+  <%= form.number_field :user_id, id: :friend_user_id, value: current_user.id, type: :hidden %>
+
+  <div class="form-group">
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<style>
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+  display: block;
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+</style>

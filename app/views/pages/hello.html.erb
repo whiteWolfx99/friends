@@ -1,2 +1,53 @@
-<h1>Hello world</h1>
-this is my first rails page...
+<style>
+.h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.ul li {
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #0062cc;
+  color: #fff;
+}
+</style>
+
+<h1 class="h1">Welcome to My Friends!</h1>
+<br>
+<p>My Friends is a website that allows you to save and manage the contact and social media information of your friends. Here's what you can do:</p>
+
+<ul class="ul">
+  <li>Create an account or log in if you already have one</li>
+  <li>Add your friends to your list</li>
+  <li>View and edit the details of each friend</li>
+  <li>Delete friends you no longer want to keep in your list</li>
+  <li>Edit your own profile or delete your account</li>
+</ul>
+<br>
+
+ <% if user_signed_in? %>
+  <p>You are already logged in. Click the button below to view your friends list.</p>
+  <br>
+  <%= link_to "View your friends", friends_path, class: "btn btn-primary" %>
+  <% else %>
+  <p>Ready to get started? Click the button below to create your account or log in if you already have one.</p>
+<br>
+<%= link_to "Create an account or log in", new_user_registration_path, class: "btn btn-primary" %>
+  <% end%>  
