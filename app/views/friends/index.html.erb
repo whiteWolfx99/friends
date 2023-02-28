@@ -1,14 +1,32 @@
-<h1>list Friends</h1>
-
-<div id="friends" class="container">
-  <% @friends.each do |friend| %>
-<div  class="row"> 
-    <%= render friend %>
-    <p>
-      <%= link_to "Show", friend %>
-    </p>
+<div class="search">
+      <%= form_tag friends_path, method: :get do %>
+      <%= text_field_tag :search, params[:search], class: "search_input", placeholder: "Search for friend" %>
+        <%= submit_tag "Search", class: 'search_button' %>
+        <% if params[:search].present? %>
+          <%= button_tag "Cancel", type: :reset, class: 'search_button', onclick: "location.href='#{friends_path}'" %>
+        <% end %>
+      <% end %>
 </div>
+
+<% if @friends.any? %>
+<div class="container main_container">
+  <div class= "col">
+  <% @friends.each_with_index do |friend, index| %>
+   <%= link_to friend_path(friend) do %>    
+     <div class= "row"> 
+        <div class= "circle">
+          <%= index + 1 %>
+        </div>
+        <%= render friend %>
+     </div>
+    <% end %>
   <% end %>
+  </div>
 </div>
+<% else %>
+  <p>No friends found.</p>
+<% end %>
 
-<%= link_to "New friend", new_friend_path %>
+<div class="add_friends">
+<%= link_to "+", new_friend_path %>
+</div>

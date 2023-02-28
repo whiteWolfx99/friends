@@ -1,3 +1,9 @@
 <div class='alert'>
-<h1><%= notice %></h1>
+  <h1><%= notice %></h1>
 </div>
+
+<script>
+  setTimeout(function() {
+    document.querySelector('.alert').style.display = 'none';
+  }, 3000);
+</script>
